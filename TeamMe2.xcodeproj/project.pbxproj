@@ -15,6 +15,7 @@
 		36C9027B1AF223A800C147CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C9027A1AF223A800C147CC /* Images.xcassets */; };
 		36C9027E1AF223A800C147CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C9027C1AF223A800C147CC /* LaunchScreen.xib */; };
 		36C9028A1AF223A800C147CC /* TeamMe2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C902891AF223A800C147CC /* TeamMe2Tests.m */; };
+		36C9029F1AF22F5C00C147CC /* PlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		36C902831AF223A800C147CC /* TeamMe2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamMe2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C902881AF223A800C147CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36C902891AF223A800C147CC /* TeamMe2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamMe2Tests.m; sourceTree = "<group>"; };
+		36C9029D1AF22F5C00C147CC /* PlayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewController.h; sourceTree = "<group>"; };
+		36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				36C9027A1AF223A800C147CC /* Images.xcassets */,
 				36C9027C1AF223A800C147CC /* LaunchScreen.xib */,
 				36C9026A1AF223A700C147CC /* Supporting Files */,
+				36C9029D1AF22F5C00C147CC /* PlayerTableViewController.h */,
+				36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */,
 			);
 			path = TeamMe2;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				36C902701AF223A700C147CC /* AppDelegate.m in Sources */,
 				36C902731AF223A700C147CC /* FirstViewController.m in Sources */,
 				36C9026D1AF223A700C147CC /* main.m in Sources */,
+				36C9029F1AF22F5C00C147CC /* PlayerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +430,7 @@
 				36C9028F1AF223A800C147CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36C902901AF223A800C147CC /* Build configuration list for PBXNativeTarget "TeamMe2Tests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +439,7 @@
 				36C902921AF223A800C147CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
