@@ -14,10 +14,13 @@
 
 @implementation CameraViewController
 
+@synthesize videoCamera;
+
 #define kUseCamera YES
 #define kUseAccelerometer YES
-#define kAnimate YES
+#define kAnimate NO
 #define kPlaySounds YES
+#define kUseOpenCV YES
 
 #define kAccelerometerUpdateInterval 0.1
 
@@ -38,8 +41,57 @@
     AudioServicesPlaySystemSound (systemSoundID);
 }
 
+- (void) initCameraOpenCV {
+    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:CameraView];
+    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
+    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    self.videoCamera.defaultFPS = 30;
+    self.videoCamera.delegate = self;
+
+//    self.videoCamera.grayscale = NO;
+
+}
+
+#pragma mark - Protocol CvVideoCameraDelegate
+
+#ifdef __cplusplus
+- (void)processImage:(Mat&)image;
+{
+    NSLog(@"processing image");
+//    NSLog(@"Image res: %d x %d x %d , type: %d ",
+//          image.size().width,
+//          image.size().height,
+//          image.channels(),
+//          image.type());
+    // Do some OpenCV stuff with the image
+    NSDate *start = [NSDate date];
+    
+
+    Mat gray;
+    cvtColor(image,gray,CV_BGRA2GRAY);
+    Canny(gray, gray, 50, 150);
+    cvtColor(gray,image,CV_GRAY2BGRA);
+
+    NSDate *methodFinish = [NSDate date];
+    NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:start];
+
+    NSString *newtitle = [NSString stringWithFormat:@"Tag! (%04.0fms)",executionTime*1000.0];
+    // This must happen on main thread.
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [TagButton2 setTitle:newtitle forState: UIControlStateNormal];
+    });
+
+//    NSLog(@"Execution Time: %f", executionTime);
+
+}
+#endif
+
 - (void) initCamera {
     NSLog(@"Initializing Camera");
+    if (kUseOpenCV) {
+        [self initCameraOpenCV];
+    }
     //-- Setup Capture Session.
     self._captureSession = [[AVCaptureSession alloc] init];
     
@@ -64,7 +116,7 @@
     [self updatePreviewLayer];
     
     //-- Add the layer to the view that should display the camera input
-    [self.view.layer addSublayer:self._previewLayer];
+    [CameraView.layer addSublayer:self._previewLayer];
     [self playSystemSoundWithID:SoundIDCameraInit];
     
 }
@@ -79,17 +131,24 @@
 - (void) startCamera {
     //-- Start the camera
     NSLog(@"Starting camera");
-    if (kUseCamera) [self._captureSession startRunning];
+    if (kUseCamera) {
+        if (kUseOpenCV) [self.videoCamera start];
+        else [self._captureSession startRunning];
+    }
     if (kPlaySounds) [self playSystemSoundWithID:SoundIDCameraStart];
-//    [self.view bringSubviewToFront:TagButton2];
-//    [self.view bringSubviewToFront:LookUpLabel2];
+    [self.view bringSubviewToFront:PerfLabel];
+    [self.view bringSubviewToFront:TagButton2];
+    [self.view bringSubviewToFront:LookUpLabel2];
 
 }
 
 - (void) stopCamera {
     //-- Stop the camera
     NSLog(@"Stopping camera");
-    if (kUseCamera) [self._captureSession stopRunning];
+    if (kUseCamera) {
+        if (kUseOpenCV) [self.videoCamera stop];
+        else [self._captureSession stopRunning];
+    }
     if (kPlaySounds) [self playSystemSoundWithID:SoundIDCameraStop];
 
 }
@@ -113,6 +172,7 @@
     transform = CGAffineTransformScale(transform, 1, scale);
     [layer setAffineTransform: transform];
     [UIView commitAnimations];
+    NSAssert(kAnimate,@"...");
 }
 -(void)scaleButtonUp{
     [self scaleButtonWithScale:kTagAnimationScale withDuration: kTagAnimationDuration withSelector: @selector(scaleButtonDown)];
@@ -199,7 +259,8 @@
         case UIDeviceOrientationUnknown:
         case UIDeviceOrientationFaceUp:
         default:
-            NSAssert(0,@"Should not be here");
+            NSLog(@"Warning - bad orientation");
+            shift = 0;
             break;
     }
     return shift;
@@ -227,7 +288,8 @@
         case UIDeviceOrientationUnknown:
         case UIDeviceOrientationFaceUp:
         default:
-            NSAssert(0,@"Should not be here");
+            y = 0;
+            NSLog(@"Warning - bad orientation");
             break;
     }
     return y;
@@ -246,10 +308,16 @@
     LookUpLabel2 = [[UILabel alloc] init];
     [LookUpLabel2 setTranslatesAutoresizingMaskIntoConstraints:NO];
     LookUpLabel2.text = @"Look up!";
+    [LookUpLabel2 setTextColor: [UIColor blackColor]];
+    [LookUpLabel2 setBackgroundColor: [UIColor whiteColor]];
     
     
-    TagButton2 = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    TagButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [TagButton2.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [TagButton2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [TagButton2 setTitle:@"Tag This Place" forState:UIControlStateNormal];
+    [TagButton2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [TagButton2 setEnabled:YES];
 
     [view addSubview:LookUpLabel2];
     [view addSubview:TagButton2];
@@ -286,7 +354,7 @@
                   constant: -100];
 
     [view addConstraint:constraint];
-
+    
     constraint = [NSLayoutConstraint
                   constraintWithItem:TagButton2
                   attribute:NSLayoutAttributeCenterX
@@ -294,9 +362,21 @@
                   toItem:view
                   attribute:NSLayoutAttributeCenterX
                   multiplier:1.0
-                  constant:0];
+                  constant: 0];
     
     [view addConstraint:constraint];
+    
+    constraint = [NSLayoutConstraint
+                  constraintWithItem:TagButton2
+                  attribute:NSLayoutAttributeWidth
+                  relatedBy:NSLayoutRelationEqual
+                  toItem:view
+                  attribute:NSLayoutAttributeWidth
+                  multiplier:1.0
+                  constant: 0];
+    
+    [view addConstraint:constraint];
+
 
 
 }

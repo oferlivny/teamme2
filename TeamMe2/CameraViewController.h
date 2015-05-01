@@ -7,20 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@import CoreMotion;
-
+#import <CoreMotion/CoreMotion.h>
 #include <AudioToolbox/AudioToolbox.h>
 #include <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController : UIViewController {
-    CFURLRef        soundFileURLRef;
-    SystemSoundID   soundFileObject;
 
-    __weak IBOutlet UIButton *TagButton;
-    __weak IBOutlet UILabel *LookUpLabel;
+// OpenCV addition: http://docs.opencv.org/doc/tutorials/ios/hello/hello.html
+//#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#import <opencv2/highgui/cap_ios.h>
+//#endif
+
+using namespace cv;
+
+
+@interface CameraViewController : UIViewController <CvVideoCameraDelegate> {
     UIButton *TagButton2;
     UILabel *LookUpLabel2;
+    __weak IBOutlet UIView *CameraView;
+    __weak IBOutlet UILabel *PerfLabel;
+    
+    CvVideoCamera* videoCamera;
 }
 
 
@@ -31,6 +38,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *xAxis;
 @property (nonatomic, strong) IBOutlet UILabel *yAxis;
 @property (nonatomic, strong) IBOutlet UILabel *zAxis;
+
+@property (nonatomic, retain) CvVideoCamera* videoCamera;
+
 
 - (IBAction)TagPressed:(id)sender;
 
