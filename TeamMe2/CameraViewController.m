@@ -81,8 +81,8 @@
     NSLog(@"Starting camera");
     if (kUseCamera) [self._captureSession startRunning];
     if (kPlaySounds) [self playSystemSoundWithID:SoundIDCameraStart];
-    [self.view bringSubviewToFront:TagButton];
-    [self.view bringSubviewToFront:LookUpLabel];
+//    [self.view bringSubviewToFront:TagButton2];
+//    [self.view bringSubviewToFront:LookUpLabel2];
 
 }
 
@@ -100,7 +100,7 @@
 -(void) scaleButtonWithScale: (CGFloat) scale withDuration: (CGFloat) duration withSelector: (SEL) selector {
     
     CALayer *layer;
-    layer = TagButton.layer;
+    layer = TagButton2.layer;
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     
@@ -151,12 +151,12 @@
     CGAffineTransform transform = CGAffineTransformMakeTranslation(0, yPixelOffset);
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:kAccelerometerUpdateInterval];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDuration:kAccelerometerUpdateInterval/2.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDelegate:self];
     transform = CGAffineTransformScale(transform, scale, scale);
-    [LookUpLabel setTransform: transform];
+    [LookUpLabel2 setTransform: transform];
     [UIView commitAnimations];
 
 }
@@ -241,11 +241,71 @@
     }
 }
 
+- (void) initButtons {
+    UIView *view = self.view;
+    LookUpLabel2 = [[UILabel alloc] init];
+    [LookUpLabel2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+    LookUpLabel2.text = @"Look up!";
+    
+    
+    TagButton2 = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [TagButton2 setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+    [view addSubview:LookUpLabel2];
+    [view addSubview:TagButton2];
+
+    NSLayoutConstraint *constraint = [NSLayoutConstraint
+                                      constraintWithItem:LookUpLabel2
+                                      attribute:NSLayoutAttributeCenterX
+                                      relatedBy:NSLayoutRelationEqual
+                                      toItem:view
+                                      attribute:NSLayoutAttributeCenterX
+                                      multiplier:1.0
+                                      constant:0];
+
+    [view addConstraint:constraint];
+    
+    constraint = [NSLayoutConstraint
+                  constraintWithItem:LookUpLabel2
+                  attribute:NSLayoutAttributeBaseline
+                  relatedBy:NSLayoutRelationLessThanOrEqual
+                  toItem:view
+                  attribute:NSLayoutAttributeBaseline
+                  multiplier:1.0
+                  constant:-200];
+    
+    [view addConstraint:constraint];
+
+    constraint = [NSLayoutConstraint
+                  constraintWithItem:TagButton2
+                  attribute:NSLayoutAttributeBaseline
+                  relatedBy:NSLayoutRelationEqual
+                  toItem:view
+                  attribute:NSLayoutAttributeBottom
+                  multiplier:1.0
+                  constant: -100];
+
+    [view addConstraint:constraint];
+
+    constraint = [NSLayoutConstraint
+                  constraintWithItem:TagButton2
+                  attribute:NSLayoutAttributeCenterX
+                  relatedBy:NSLayoutRelationEqual
+                  toItem:view
+                  attribute:NSLayoutAttributeCenterX
+                  multiplier:1.0
+                  constant:0];
+    
+    [view addConstraint:constraint];
+
+
+}
 
 - (void)viewDidLoad {
     NSLog(@"view Did Load");
     [super viewDidLoad];
-    [self initCamera];
+    if (kUseCamera) [self initCamera];
+    [self initButtons];
     [self initAnimations];
 }
 

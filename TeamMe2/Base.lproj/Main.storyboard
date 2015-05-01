@@ -18,37 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51d-iQ-olS">
-                                <rect key="frame" x="0.0" y="-253" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmq-2H-guL">
-                                <rect key="frame" x="0.0" y="445" width="320" height="30"/>
-                                <state key="normal" title="Tag This Place">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="TagPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="O4I-cS-Vur"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPM-V7-Bwh">
-                                <rect key="frame" x="0.0" y="391" width="320" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="leading" secondItem="51d-iQ-olS" secondAttribute="leading" id="7nL-qz-UbG"/>
-                            <constraint firstItem="51d-iQ-olS" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="-253" id="AWw-ud-8Cu"/>
-                            <constraint firstItem="rmq-2H-guL" firstAttribute="top" secondItem="TPM-V7-Bwh" secondAttribute="bottom" constant="33" id="BG6-xu-hSl"/>
-                            <constraint firstItem="rmq-2H-guL" firstAttribute="trailing" secondItem="TPM-V7-Bwh" secondAttribute="trailing" id="NGr-gR-GxF"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="rmq-2H-guL" secondAttribute="bottom" constant="44" id="Syr-6C-Tvy"/>
-                            <constraint firstItem="rmq-2H-guL" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="aqg-iO-Haf"/>
-                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="trailing" secondItem="51d-iQ-olS" secondAttribute="trailing" id="bAi-ga-Wri"/>
-                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="leading" secondItem="rmq-2H-guL" secondAttribute="leading" id="fRF-XV-omu"/>
-                            <constraint firstAttribute="bottom" secondItem="51d-iQ-olS" secondAttribute="bottom" constant="302" id="qV1-K6-Ukv"/>
-                            <constraint firstAttribute="trailing" secondItem="rmq-2H-guL" secondAttribute="trailing" id="xlh-1L-cif"/>
+                            <constraint firstItem="51d-iQ-olS" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="6cf-9D-p4e"/>
+                            <constraint firstItem="51d-iQ-olS" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="UYo-uT-PAJ"/>
+                            <constraint firstAttribute="trailing" secondItem="51d-iQ-olS" secondAttribute="trailing" id="cc2-6Q-ojS"/>
+                            <constraint firstItem="51d-iQ-olS" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="ydH-ER-tye"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="first" id="acW-dT-cKf"/>
@@ -87,6 +66,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Look Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPM-V7-Bwh">
+                                <rect key="frame" x="140" y="43" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmq-2H-guL">
+                                <rect key="frame" x="135" y="94" width="320" height="30"/>
+                                <state key="normal" title="Tag This Place">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TagPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="O4I-cS-Vur"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

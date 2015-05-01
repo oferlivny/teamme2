@@ -19,6 +19,8 @@
 
     __weak IBOutlet UIButton *TagButton;
     __weak IBOutlet UILabel *LookUpLabel;
+    UIButton *TagButton2;
+    UILabel *LookUpLabel2;
 }
 
 
