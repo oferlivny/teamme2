@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate >
+@interface PlayerTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate > {
+    
+    
+}
 
 @property (copy, nonatomic) NSArray *test;
 

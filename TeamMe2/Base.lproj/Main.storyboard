@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Timer-->
+        <!--Camera-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="221" y="279" width="158" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="203" y="329" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51d-iQ-olS">
+                                <rect key="frame" x="0.0" y="-253" width="320" height="519"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmq-2H-guL">
+                                <rect key="frame" x="0.0" y="445" width="320" height="30"/>
+                                <state key="normal" title="Tag This Place">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TagPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="O4I-cS-Vur"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPM-V7-Bwh">
+                                <rect key="frame" x="0.0" y="391" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="leading" secondItem="51d-iQ-olS" secondAttribute="leading" id="7nL-qz-UbG"/>
+                            <constraint firstItem="51d-iQ-olS" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="-253" id="AWw-ud-8Cu"/>
+                            <constraint firstItem="rmq-2H-guL" firstAttribute="top" secondItem="TPM-V7-Bwh" secondAttribute="bottom" constant="33" id="BG6-xu-hSl"/>
+                            <constraint firstItem="rmq-2H-guL" firstAttribute="trailing" secondItem="TPM-V7-Bwh" secondAttribute="trailing" id="NGr-gR-GxF"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="rmq-2H-guL" secondAttribute="bottom" constant="44" id="Syr-6C-Tvy"/>
+                            <constraint firstItem="rmq-2H-guL" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="aqg-iO-Haf"/>
+                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="trailing" secondItem="51d-iQ-olS" secondAttribute="trailing" id="bAi-ga-Wri"/>
+                            <constraint firstItem="TPM-V7-Bwh" firstAttribute="leading" secondItem="rmq-2H-guL" secondAttribute="leading" id="fRF-XV-omu"/>
+                            <constraint firstAttribute="bottom" secondItem="51d-iQ-olS" secondAttribute="bottom" constant="302" id="qV1-K6-Ukv"/>
+                            <constraint firstAttribute="trailing" secondItem="rmq-2H-guL" secondAttribute="trailing" id="xlh-1L-cif"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="first" id="acW-dT-cKf"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="TagButton" destination="rmq-2H-guL" id="wuE-kD-yi6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

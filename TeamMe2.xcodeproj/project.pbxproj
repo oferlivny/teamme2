@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3602CB8C1AF2550D00C79732 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3602CB8B1AF2550D00C79732 /* AudioToolbox.framework */; };
 		36C9026D1AF223A700C147CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C9026C1AF223A700C147CC /* main.m */; };
 		36C902701AF223A700C147CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C9026F1AF223A700C147CC /* AppDelegate.m */; };
-		36C902731AF223A700C147CC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C902721AF223A700C147CC /* FirstViewController.m */; };
+		36C902731AF223A700C147CC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C902721AF223A700C147CC /* CameraViewController.m */; };
 		36C902761AF223A700C147CC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C902751AF223A700C147CC /* SecondViewController.m */; };
 		36C902791AF223A800C147CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C902771AF223A800C147CC /* Main.storyboard */; };
 		36C9027B1AF223A800C147CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C9027A1AF223A800C147CC /* Images.xcassets */; };
 		36C9027E1AF223A800C147CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C9027C1AF223A800C147CC /* LaunchScreen.xib */; };
 		36C9028A1AF223A800C147CC /* TeamMe2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C902891AF223A800C147CC /* TeamMe2Tests.m */; };
 		36C9029F1AF22F5C00C147CC /* PlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */; };
+		36D981651AF24CD700DEF43D /* CameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D981641AF24CD700DEF43D /* CameraView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3602CB8B1AF2550D00C79732 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		36C902671AF223A700C147CC /* TeamMe2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamMe2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C9026B1AF223A700C147CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36C9026C1AF223A700C147CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36C9026E1AF223A700C147CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		36C9026F1AF223A700C147CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		36C902711AF223A700C147CC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		36C902721AF223A700C147CC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		36C902711AF223A700C147CC /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		36C902721AF223A700C147CC /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		36C902741AF223A700C147CC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		36C902751AF223A700C147CC /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		36C902781AF223A800C147CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +49,8 @@
 		36C902891AF223A800C147CC /* TeamMe2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamMe2Tests.m; sourceTree = "<group>"; };
 		36C9029D1AF22F5C00C147CC /* PlayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewController.h; sourceTree = "<group>"; };
 		36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewController.m; sourceTree = "<group>"; };
+		36D981631AF24CD700DEF43D /* CameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraView.h; sourceTree = "<group>"; };
+		36D981641AF24CD700DEF43D /* CameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3602CB8C1AF2550D00C79732 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +75,7 @@
 		36C9025E1AF223A700C147CC = {
 			isa = PBXGroup;
 			children = (
+				3602CB8B1AF2550D00C79732 /* AudioToolbox.framework */,
 				36C902691AF223A700C147CC /* TeamMe2 */,
 				36C902861AF223A800C147CC /* TeamMe2Tests */,
 				36C902681AF223A700C147CC /* Products */,
@@ -89,8 +96,8 @@
 			children = (
 				36C9026E1AF223A700C147CC /* AppDelegate.h */,
 				36C9026F1AF223A700C147CC /* AppDelegate.m */,
-				36C902711AF223A700C147CC /* FirstViewController.h */,
-				36C902721AF223A700C147CC /* FirstViewController.m */,
+				36C902711AF223A700C147CC /* CameraViewController.h */,
+				36C902721AF223A700C147CC /* CameraViewController.m */,
 				36C902741AF223A700C147CC /* SecondViewController.h */,
 				36C902751AF223A700C147CC /* SecondViewController.m */,
 				36C902771AF223A800C147CC /* Main.storyboard */,
@@ -99,6 +106,8 @@
 				36C9026A1AF223A700C147CC /* Supporting Files */,
 				36C9029D1AF22F5C00C147CC /* PlayerTableViewController.h */,
 				36C9029E1AF22F5C00C147CC /* PlayerTableViewController.m */,
+				36D981631AF24CD700DEF43D /* CameraView.h */,
+				36D981641AF24CD700DEF43D /* CameraView.m */,
 			);
 			path = TeamMe2;
 			sourceTree = "<group>";
@@ -231,9 +240,10 @@
 			files = (
 				36C902761AF223A700C147CC /* SecondViewController.m in Sources */,
 				36C902701AF223A700C147CC /* AppDelegate.m in Sources */,
-				36C902731AF223A700C147CC /* FirstViewController.m in Sources */,
+				36C902731AF223A700C147CC /* CameraViewController.m in Sources */,
 				36C9026D1AF223A700C147CC /* main.m in Sources */,
 				36C9029F1AF22F5C00C147CC /* PlayerTableViewController.m in Sources */,
+				36D981651AF24CD700DEF43D /* CameraView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamMe2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -372,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeamMe2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
